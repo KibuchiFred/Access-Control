@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+
+</head>
+<form action="#" th:action="@{/registerUser}" th:object="${user}" method="post" >
+
+<p>First Name: </p>
+    <input type="text" th:field="*{firstName}" name="First Name"/>
+    <br>
+
+    <p>Last Name: </p>
+    <input  type="text" th:field="*{lastName}" name="Last NAme"/>
+    <br>
+
+    <p>Email Address: </p><input type="email" th:field="*{email}" name="Email Address"/>
+    <br>
+
+    <p>User Type: </p>
+    <!--<select th:field="*{userRole}">-->
+        <!--<option th:value="'CLIENT'" th:text="Client"></option>-->
+        <!--<option th:value="'SUPPLIER'" th:text="Supplier"></option>-->
+    <!--</select>-->
+
+    <select th:field="*{ROLE}" >
+        <option th:each="*ROLE: ${userRoles}" th:value="${ROLE}" th:text="${ROLE}">Select Role</option>
+    </select>
+    <br>
+
+    <p>User Name: </p><input type="text" th:field="*{username}" name="User Name"/>
+    <br>
+
+    <p>Password: </p><input  type="password" th:field="*{password}" name="Password"/>
+    <br>
+
+    <p>Confirm Password: </p><input type="password" th:field="*{confirmPassword}" name="Password Confirmation"/>
+    <br>
+
+    <input type="submit" value="Register" />
+
+</form>
+</body>
+</html>
